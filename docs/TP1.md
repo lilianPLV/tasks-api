@@ -93,6 +93,7 @@ puis recommencez le `git push`.
 > 📸 **TP1-4 :** le run vert qui suit la correction.
 
 **Questions (à traiter dans le dossier) :** Quel test a échoué ? À quelle ligne ? Qu'est-ce qui a permis de le trouver rapidement ?
+2 on fail du test a la ligne 47. On nous informe avec une croix rouge qu'il y a eu une erreur dans les actions.
 
 ---
 

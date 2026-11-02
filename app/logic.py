@@ -1,6 +1,6 @@
 """Logique métier de l'application (fonctions pures, faciles à tester)."""
 
-MAX_TITLE_LENGTH = 5
+MAX_TITLE_LENGTH = 80
 
 
 def normalize_title(title: str) -> str:
