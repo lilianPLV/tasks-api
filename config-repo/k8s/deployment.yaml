@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tasks-api
+  labels:
+    app: tasks-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tasks-api
+  template:
+    metadata:
+      labels:
+        app: tasks-api
+    spec:
+      containers:
+        - name: tasks-api
+          # À MODIFIER au jour 4 : remplacer <votre-compte-github> par votre identifiant (en minuscules)
+          image: ghcr.io/<votre-compte-github>/tasks-api:0.1.0
+          ports:
+            - containerPort: 8000
+          env:
+            - name: APP_VERSION
+              value: "0.1.0"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 3
+            periodSeconds: 5

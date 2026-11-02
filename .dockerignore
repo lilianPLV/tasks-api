@@ -1,0 +1,15 @@
+.git
+.github
+__pycache__
+*.pyc
+.venv
+venv
+.pytest_cache
+.coverage
+htmlcov
+docs
+config-repo
+argocd
+pipelines-a-reparer
+CHANGELOG.md
+scripts

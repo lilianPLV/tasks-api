@@ -1,0 +1,23 @@
+# Jour 4 : décrit à Argo CD quel dépôt surveiller et où déployer.
+# À MODIFIER : remplacez <votre-compte-github> par votre identifiant GitHub (minuscules).
+# Appliquer avec : kubectl apply -f argocd/application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tasks-api
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/<votre-compte-github>/tasks-config.git
+    targetRevision: main
+    path: k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: tasks
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
