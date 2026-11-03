@@ -48,6 +48,9 @@ Il faut séparer lint et test en 2 jobs car les deux ne traitent pas les meme po
 > 📸 **TP2-4 :** l'étape setup-python du 2ᵉ run, avec la mention du cache restauré, et la section « Artifacts » de la page du run.
 
 **Questions :** Pourquoi tester sur plusieurs versions de Python ? Que gagne-t-on avec le cache ? Un artefact, c'est quoi ?
+Tester plusieurs versions de python car tout le monde ne tourne pas tous sur la meme version que moi
+Le cache permet de garder les dépendences sans devoir les retélécharger a chaque fois
+Un artefact qui est produit lors de l'execution
 
 ---
 
