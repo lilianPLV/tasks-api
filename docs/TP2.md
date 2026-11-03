@@ -30,6 +30,7 @@ cache, protection de la branche `main`, travail à deux sur un même dépôt et 
 > 📸 **TP2-2 :** le job `lint` rouge, avec le message de flake8 lisible.
 
 **Questions :** Quelle différence entre un linter (flake8) et un formateur (black) ? Pourquoi séparer `lint` et `test` en deux jobs ?
+Il faut séparer lint et test en 2 jobs car les deux ne traitent pas les meme possibilité d'erreur se qui permet de distinguer et de trouver le bon endroit de l'erreur
 
 ---
 
