@@ -30,6 +30,7 @@ cache, protection de la branche `main`, travail à deux sur un même dépôt et 
 > 📸 **TP2-2 :** le job `lint` rouge, avec le message de flake8 lisible.
 
 **Questions :** Quelle différence entre un linter (flake8) et un formateur (black) ? Pourquoi séparer `lint` et `test` en deux jobs ?
+Il faut séparer lint et test en 2 jobs car les deux ne traitent pas les meme possibilité d'erreur se qui permet de distinguer et de trouver le bon endroit de l'erreur
 
 ---
 
@@ -47,6 +48,9 @@ cache, protection de la branche `main`, travail à deux sur un même dépôt et 
 > 📸 **TP2-4 :** l'étape setup-python du 2ᵉ run, avec la mention du cache restauré, et la section « Artifacts » de la page du run.
 
 **Questions :** Pourquoi tester sur plusieurs versions de Python ? Que gagne-t-on avec le cache ? Un artefact, c'est quoi ?
+Tester plusieurs versions de python car tout le monde ne tourne pas tous sur la meme version que moi
+Le cache permet de garder les dépendences sans devoir les retélécharger a chaque fois
+Un artefact qui est produit lors de l'execution
 
 ---
 
@@ -63,6 +67,7 @@ cache, protection de la branche `main`, travail à deux sur un même dépôt et 
 > 📸 **TP2-6 :** une PR dont la fusion est bloquée par une vérification en échec.
 
 **Question :** Pourquoi interdire de pousser directement sur `main` ?
+Car le main peut etre la branche en prod et si on push une erreur sur la main la prod peut cassé
 
 ---
 
@@ -94,6 +99,7 @@ git push
 **Si vous êtes seul :** créez vous-même deux branches depuis `main`, modifiez la même ligne de `CHANGELOG.md` sur chacune, fusionnez la première puis résolvez le conflit sur la seconde.
 
 **Questions :** Pourquoi Git ne peut-il pas résoudre ce conflit seul ? Qu'est-ce qui a vérifié le code après la résolution ?
+
 
 ---
 

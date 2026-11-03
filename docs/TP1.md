@@ -113,6 +113,7 @@ puis recommencez le `git push`.
 > 📸 **TP1-7 :** le `README.md` sur GitHub avec le badge affiché.
 
 **Question (à traiter dans le dossier) :** Pourquoi attend-on que la CI soit verte avant de fusionner ?
+pour être sûr qu'il n'y ait pas d'erreur
 
 ---
 
