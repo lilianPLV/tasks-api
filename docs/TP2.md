@@ -67,6 +67,7 @@ Un artefact qui est produit lors de l'execution
 > 📸 **TP2-6 :** une PR dont la fusion est bloquée par une vérification en échec.
 
 **Question :** Pourquoi interdire de pousser directement sur `main` ?
+Car le main peut etre la branche en prod et si on push une erreur sur la main la prod peut cassé
 
 ---
 
@@ -98,6 +99,7 @@ git push
 **Si vous êtes seul :** créez vous-même deux branches depuis `main`, modifiez la même ligne de `CHANGELOG.md` sur chacune, fusionnez la première puis résolvez le conflit sur la seconde.
 
 **Questions :** Pourquoi Git ne peut-il pas résoudre ce conflit seul ? Qu'est-ce qui a vérifié le code après la résolution ?
+
 
 ---
 
