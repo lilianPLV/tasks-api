@@ -73,6 +73,7 @@ Vérifiez que `/version` répond `local`, puis `docker compose down`.
 > 📸 **TP3-2 :** `docker compose up` en cours et le `curl` sur `/version`.
 
 **Question :** Que gagne-t-on à décrire le lancement dans un fichier plutôt que dans une longue commande ?
+un fichier n'a pas besoin d'être écrit a chaque fois contrairement a la commande
 
 ---
 
