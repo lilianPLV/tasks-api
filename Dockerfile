@@ -21,7 +21,7 @@ RUN useradd --create-home appuser
 USER appuser
 
 # TODO 6 : embarquer la version et lancer l'app
-ARG APP_VERSION=dev
+ARG APP_VERSION=user
 ENV APP_VERSION=${APP_VERSION}
 EXPOSE 8000
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app.main:app"]
