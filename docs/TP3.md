@@ -148,6 +148,7 @@ Créez `v0.1.1` (nouveau tag) : le pipeline passe sur staging, puis **attend vot
 > 📸 **TP3-7 :** le run en attente d'approbation (« Waiting » / « Review deployments »), puis le run terminé.
 
 **Questions :** À quoi sert un test de fumée ? Pourquoi demander une approbation humaine avant la production ?
+Un test de fumée est une vérification minimale qui répond à une seule question : « est-ce que ça démarre et que ça respire ? ». Le nom vient de l’électronique : on allume l’appareil et on regarde s’il fume
 
 ---
 
