@@ -129,6 +129,7 @@ docker run --rm -p 8000:8000 ghcr.io/<votre-compte-minuscules>/tasks-api:0.1.0
 > 📸 **TP3-6 :** `docker run` de l'image **téléchargée depuis GHCR** et `curl /version` qui répond `0.1.0`.
 
 **Question :** Quel est l'avantage d'une image versionnée par rapport à « le code de ma machine » ?
+Une image versionnée est un artefact figé, identifiable et reproductible. « Le code de ma machine » est un état local que personne d’autre ne peut vérifier ni retrouver
 
 ---
 
