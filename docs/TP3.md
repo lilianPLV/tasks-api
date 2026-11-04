@@ -101,6 +101,8 @@ Poussez sur `main`, puis allez voir votre profil GitHub → **Packages**.
 > 📸 **TP3-4 :** la page du package `tasks-api` avec son tag `sha-…`.
 
 **Questions :** Pourquoi `build` attend-il `test` ? Pourquoi éviter le tag `latest` en production ?
+pour ne pas build avant d'avoir tester qu'il build et soit disponible
+latest est la mettre le job en dernier mais n'assure pas qu'il n'y ai pas d'erreur dans le test
 
 ---
 
