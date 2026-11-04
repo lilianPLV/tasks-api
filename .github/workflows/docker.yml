@@ -11,11 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - name: Installer les dépendances
         run: pip install -r requirements-dev.txt
+
       - name: Lancer les tests
         run: pytest
 
@@ -25,10 +28,9 @@ jobs:
     permissions:
       contents: read
       packages: write
-    outputs:
-      image: ${{ steps.vars.outputs.image }}
     steps:
       - uses: actions/checkout@v4
+
       - name: Calculer le nom de l'image et la version
         id: vars
         run: |
@@ -38,12 +40,15 @@ jobs:
           else
             echo "version=dev" >> "$GITHUB_OUTPUT"
           fi
+
       - uses: docker/setup-buildx-action@v4
+
       - uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
       - id: meta
         uses: docker/metadata-action@v6
         with:
@@ -51,6 +56,7 @@ jobs:
           tags: |
             type=sha,format=short
             type=semver,pattern={{version}}
+
       - uses: docker/build-push-action@v7
         with:
           context: .
@@ -72,10 +78,13 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Lancer l'image du commit
         run: |
-          IMAGE="${{ needs.build.outputs.image }}:sha-${GITHUB_SHA::7}"
+          IMAGE="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/api:sha-${GITHUB_SHA::7}"
+          echo "Image : $IMAGE"
           docker run -d --name api -p 8000:8000 "$IMAGE"
+
       - name: Test de fumée
         run: |
           for path in /health /version; do
@@ -95,9 +104,11 @@ jobs:
               exit 1
             fi
           done
+
       - name: Arrêt
         if: always()
         run: docker rm -f api
+
   deploy-production:
     needs: deploy-staging
     if: startsWith(github.ref, 'refs/tags/v')
@@ -112,10 +123,13 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Lancer l'image de la release
         run: |
-          IMAGE="${{ needs.build.outputs.image }}:${GITHUB_REF_NAME#v}"
+          IMAGE="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/api:${GITHUB_REF_NAME#v}"
+          echo "Image : $IMAGE"
           docker run -d --name api -p 8000:8000 "$IMAGE"
+
       - name: Test de fumée
         run: |
           for path in /health /version; do
@@ -135,6 +149,7 @@ jobs:
               exit 1
             fi
           done
+
       - name: Arrêt
         if: always()
         run: docker rm -f api
