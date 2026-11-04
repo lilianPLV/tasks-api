@@ -37,11 +37,23 @@ Dans un autre terminal : appelez `/health` et `/version`. Arrêtez avec `Ctrl + 
 
 Contrôles :
 - `docker images tasks-api` : notez la taille de l'image ;
+```
+IMAGE             ID             DISK USAGE   CONTENT SIZE   EXTRA
+tasks-api:local   b7f138d87a53        201MB         48.9MB
+```
 - modifiez un fichier de `app/`, reconstruisez : quelles étapes sont « CACHED » ? Pourquoi `requirements.txt` est-il copié **avant** le code ?
+```
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+```
+le requirement.txt est copié avant car il y a des choses nécessaires pour le code 
 
 > 📸 **TP3-1 :** le `docker build` réussi, puis `curl` sur `/health` qui répond `{"status":"ok"}`.
 
 **Questions :** Différence entre une image et un conteneur ? À quoi sert le `.dockerignore` ?
+Une image est figé, un conteneur est en cours d'exécution
+Le dockerignore et un fichier dans lequel sont marqué les fichiers que quand tu fais une image, ses fichiers la sont ignorés.
 
 ---
 
