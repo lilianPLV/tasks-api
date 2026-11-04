@@ -119,7 +119,8 @@ git push
 > ⚠️ Ne mettez **jamais** un vrai secret dans une capture ou dans le code.
 
 **Questions :** Pourquoi GitHub masque-t-il le secret ? Que se passe-t-il si on le commite dans le dépôt ? Secret ou variable : comment choisir ?
-
+Car il est mis dans une variable qui n'est autorisé d'etre afficher
+Secret si c'est un mot de passe et variable si c'est une variable qui ne donne pas la possibilité d'avoir acces a des donnés sensible
 ---
 
 ## Partie 6 : Trois pipelines à réparer (30 min)
@@ -130,6 +131,9 @@ Dans le dossier `pipelines-a-reparer/` : trois workflows (A, B, C) avec **un bug
 > 📸 **TP2-11 :** la liste des runs montrant vos trois pipelines réparés au vert.
 
 **Questions :** Pour chaque pipeline : quel était le bug, comment l'avez-vous trouvé, comment l'éviter à l'avenir ?
+pipeline-A: indentation
+pipeline-B: il manque le actions/checkout@v6
+pipeline-C: la matrix n'a pas de "" sur les valeurs
 
 ---
 
