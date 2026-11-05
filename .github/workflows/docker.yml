@@ -173,6 +173,14 @@ jobs:
           token: ${{ secrets.CONFIG_REPO_TOKEN }}
           path: config
 
+      - name: Vérifier les droits du token
+        env:
+          TOKEN: ${{ secrets.CONFIG_REPO_TOKEN }}
+        run: |
+          curl -sS -H "Authorization: Bearer $TOKEN" \
+            https://api.github.com/repos/lilianplv/tasks-config \
+            | grep -A6 '"permissions"'
+
       - name: Mettre à jour la version de l'image
         run: bash scripts/set-image-tag.sh config/k8s/deployment.yaml "${VERSION#v}"
 
@@ -184,4 +192,3 @@ jobs:
           git add k8s/deployment.yaml
           git commit -m "Déploiement de tasks-api ${VERSION#v}"
           git push
-          
