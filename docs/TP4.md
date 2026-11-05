@@ -206,6 +206,7 @@ Puis, dans un 3ᵉ terminal : `curl http://localhost:8081/version` (Windows : `c
 > 📸 **TP4-4 :** la réponse de `/version` obtenue dans le cluster.
 
 **Question :** Pourquoi sépare-t-on le dépôt de l'application et le dépôt de configuration ? (Pensez à ce qui déclenche la CI et à qui a le droit de modifier quoi.)
+Pour éviter qu'a chaque push la config se refasse on les séparent en deux
 
 ---
 
