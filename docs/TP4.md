@@ -233,6 +233,7 @@ Dans `argocd/application.yaml`, la ligne `selfHeal: true` dit à Argo CD : « si
 3. Observez le premier terminal pendant 30 secondes, puis arrêtez-le (`Ctrl + C`).
 
 > 📝 **Observation TP4-6 (réponse écrite, pas de capture) :** à un moment, avez-vous vu les **5 pods** ? Pendant combien de temps environ ? Que s'est-il passé ensuite ?
+Pendant 30 secondes j'ai vu 5 pods qui ont été supprimer automatiquement. Elle sont passé en Error sur le terminal
 > Les deux réponses sont bonnes : si Argo CD a corrigé en quelques secondes, vous pouvez très bien n'en avoir vu que 4, ou jamais 5. Ce qui compte, c'est ce que **vous** avez vu.
 
 **C. Retour arrière.** Dans `tasks-config` :
@@ -253,6 +254,7 @@ Refresh dans Argo CD : le nombre de pods revient à 2.
 > 📸 **TP4-7 :** l'historique des commits de `tasks-config` avec le `revert`, et le retour à 2 pods.
 
 **Questions :** Que signifie `selfHeal` ? Pourquoi le retour arrière est-il simple en GitOps ?
+SelfHeal sert a la synchronisation automatique. C'est simple grace au git revert
 
 ---
 
