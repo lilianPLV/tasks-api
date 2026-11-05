@@ -41,6 +41,7 @@ puis allez sur https://localhost:8080 (acceptez l'avertissement du certificat). 
 > 📸 **TP4-2 :** `kubectl get pods -n argocd` (tous `Running`) et la page de connexion d'Argo CD.
 
 **Questions :** C'est quoi un pod ? Un deployment ? Pourquoi un `namespace` ?
+le conteneur tourne dans un pod, le Deployment garantit que le bon nombre de pods tourne dans la bonne version, et le namespace range et isole le tout.
 
 ---
 
