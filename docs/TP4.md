@@ -131,7 +131,7 @@ Ce que fait la commande macOS / Linux, de gauche à droite :
 > 📸 **TP4-2 :** `kubectl get pods -n argocd` (tous `Running`) et la page de connexion d'Argo CD.
 
 **Questions :** Avec vos mots : c'est quoi un pod ? Un deployment ? Pourquoi un `namespace` ? (Aidez-vous du vocabulaire ci-dessus et de `kubectl get pods -n argocd`.)
-
+le conteneur tourne dans un pod, le Deployment garantit que le bon nombre de pods tourne dans la bonne version, et le namespace range et isole le tout.
 
 ---
 
