@@ -169,7 +169,7 @@ jobs:
       - name: Récupérer le dépôt de configuration
         uses: actions/checkout@v6
         with:
-          repository: lilianplv/tasks-config
+          repository: lilianplv/tasks-api
           token: ${{ secrets.CONFIG_REPO_TOKEN }}
           path: config
 
@@ -178,13 +178,13 @@ jobs:
           TOKEN: ${{ secrets.CONFIG_REPO_TOKEN }}
         run: |
           curl -sS -H "Authorization: Bearer $TOKEN" \
-            https://api.github.com/repos/lilianplv/tasks-config \
+            https://api.github.com/repos/lilianplv/tasks-api \
             | grep -A6 '"permissions"'
 
       - name: Mettre à jour la version de l'image
         run: bash scripts/set-image-tag.sh config/k8s/deployment.yaml "${VERSION#v}"
 
-      - name: Commiter et pousser dans tasks-config
+      - name: Commiter et pousser dans tasks-api
         run: |
           cd config
           git config user.name "github-actions[bot]"
