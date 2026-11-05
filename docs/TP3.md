@@ -161,6 +161,7 @@ Un test de fumée est une vérification minimale qui répond à une seule questi
 > 📸 **TP3-8 :** la sortie de la commande `id` dans le conteneur.
 
 **Question :** Pourquoi ne pas exécuter une application en root dans un conteneur ?
+Pour ne pas qu'il y ai des permissions admin
 
 ---
 
