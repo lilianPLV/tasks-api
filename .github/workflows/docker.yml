@@ -153,7 +153,7 @@ jobs:
       - name: Arrêt
         if: always()
         run: docker rm -f api
-        
+
   update-config:
     needs: deploy-production
     if: startsWith(github.ref, 'refs/tags/v')
@@ -184,3 +184,4 @@ jobs:
           git add k8s/deployment.yaml
           git commit -m "Déploiement de tasks-api ${VERSION#v}"
           git push
+          
