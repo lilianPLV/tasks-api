@@ -153,3 +153,34 @@ jobs:
       - name: Arrêt
         if: always()
         run: docker rm -f api
+        
+  update-config:
+    needs: deploy-production
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      VERSION: ${{ github.ref_name }}
+    steps:
+      - name: Récupérer le dépôt applicatif
+        uses: actions/checkout@v6
+
+      - name: Récupérer le dépôt de configuration
+        uses: actions/checkout@v6
+        with:
+          repository: lilianplv/tasks-config
+          token: ${{ secrets.CONFIG_REPO_TOKEN }}
+          path: config
+
+      - name: Mettre à jour la version de l'image
+        run: bash scripts/set-image-tag.sh config/k8s/deployment.yaml "${VERSION#v}"
+
+      - name: Commiter et pousser dans tasks-config
+        run: |
+          cd config
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add k8s/deployment.yaml
+          git commit -m "Déploiement de tasks-api ${VERSION#v}"
+          git push
