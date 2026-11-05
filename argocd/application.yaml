@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/<votre-compte-github>/tasks-config.git
+    repoURL: https://github.com/lilianplv/tasks-config.git
     targetRevision: main
     path: k8s
   destination:
