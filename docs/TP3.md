@@ -52,6 +52,7 @@ le requirement.txt est copié avant car il y a des choses nécessaires pour le c
 > 📸 **TP3-1 :** le `docker build` réussi, puis `curl` sur `/health` qui répond `{"status":"ok"}`.
 
 **Questions :** Différence entre une image et un conteneur ? À quoi sert le `.dockerignore` ?
+
 Une image est figé, un conteneur est en cours d'exécution
 Le dockerignore et un fichier dans lequel sont marqué les fichiers que quand tu fais une image, ses fichiers la sont ignorés.
 
@@ -73,7 +74,8 @@ Vérifiez que `/version` répond `local`, puis `docker compose down`.
 > 📸 **TP3-2 :** `docker compose up` en cours et le `curl` sur `/version`.
 
 **Question :** Que gagne-t-on à décrire le lancement dans un fichier plutôt que dans une longue commande ?
-un fichier n'a pas besoin d'être écrit a chaque fois contrairement a la commande
+
+Un fichier n'a pas besoin d'être écrit a chaque fois contrairement a la commande
 
 ---
 
@@ -101,7 +103,8 @@ Poussez sur `main`, puis allez voir votre profil GitHub → **Packages**.
 > 📸 **TP3-4 :** la page du package `tasks-api` avec son tag `sha-…`.
 
 **Questions :** Pourquoi `build` attend-il `test` ? Pourquoi éviter le tag `latest` en production ?
-pour ne pas build avant d'avoir tester qu'il build et soit disponible
+
+Pour ne pas build avant d'avoir tester qu'il build et soit disponible
 latest est la mettre le job en dernier mais n'assure pas qu'il n'y ai pas d'erreur dans le test
 
 ---
@@ -129,6 +132,7 @@ docker run --rm -p 8000:8000 ghcr.io/<votre-compte-minuscules>/tasks-api:0.1.0
 > 📸 **TP3-6 :** `docker run` de l'image **téléchargée depuis GHCR** et `curl /version` qui répond `0.1.0`.
 
 **Question :** Quel est l'avantage d'une image versionnée par rapport à « le code de ma machine » ?
+
 Une image versionnée est un artefact figé, identifiable et reproductible. « Le code de ma machine » est un état local que personne d’autre ne peut vérifier ni retrouver
 
 ---
@@ -148,6 +152,7 @@ Créez `v0.1.1` (nouveau tag) : le pipeline passe sur staging, puis **attend vot
 > 📸 **TP3-7 :** le run en attente d'approbation (« Waiting » / « Review deployments »), puis le run terminé.
 
 **Questions :** À quoi sert un test de fumée ? Pourquoi demander une approbation humaine avant la production ?
+
 Un test de fumée est une vérification minimale qui répond à une seule question : « est-ce que ça démarre et que ça respire ? ». Le nom vient de l’électronique : on allume l’appareil et on regarde s’il fume
 
 ---
@@ -161,6 +166,7 @@ Un test de fumée est une vérification minimale qui répond à une seule questi
 > 📸 **TP3-8 :** la sortie de la commande `id` dans le conteneur.
 
 **Question :** Pourquoi ne pas exécuter une application en root dans un conteneur ?
+
 Pour ne pas qu'il y ai des permissions admin
 
 ---

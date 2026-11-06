@@ -56,6 +56,7 @@ puis recommencez le `git push`.
 > 📸 **TP1-1 :** le run « Hello » réussi, avec l'étape qui affiche la branche et l'auteur **dépliée**.
 
 **Questions (à traiter dans le dossier) :** Combien de temps a duré le run ? Où voit-on les logs de chaque étape ?
+
 6 secondes. On voit les logs dans les actions sur github 
 
 
@@ -93,6 +94,7 @@ puis recommencez le `git push`.
 > 📸 **TP1-4 :** le run vert qui suit la correction.
 
 **Questions (à traiter dans le dossier) :** Quel test a échoué ? À quelle ligne ? Qu'est-ce qui a permis de le trouver rapidement ?
+
 2 on fail du test a la ligne 47. On nous informe avec une croix rouge qu'il y a eu une erreur dans les actions.
 
 ---
@@ -113,7 +115,8 @@ puis recommencez le `git push`.
 > 📸 **TP1-7 :** le `README.md` sur GitHub avec le badge affiché.
 
 **Question (à traiter dans le dossier) :** Pourquoi attend-on que la CI soit verte avant de fusionner ?
-pour être sûr qu'il n'y ait pas d'erreur
+
+Pour être sûr qu'il n'y ait pas d'erreur
 
 ---
 

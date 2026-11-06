@@ -30,6 +30,7 @@ cache, protection de la branche `main`, travail à deux sur un même dépôt et 
 > 📸 **TP2-2 :** le job `lint` rouge, avec le message de flake8 lisible.
 
 **Questions :** Quelle différence entre un linter (flake8) et un formateur (black) ? Pourquoi séparer `lint` et `test` en deux jobs ?
+
 Il faut séparer lint et test en 2 jobs car les deux ne traitent pas les meme possibilité d'erreur se qui permet de distinguer et de trouver le bon endroit de l'erreur
 
 ---
@@ -48,6 +49,7 @@ Il faut séparer lint et test en 2 jobs car les deux ne traitent pas les meme po
 > 📸 **TP2-4 :** l'étape setup-python du 2ᵉ run, avec la mention du cache restauré, et la section « Artifacts » de la page du run.
 
 **Questions :** Pourquoi tester sur plusieurs versions de Python ? Que gagne-t-on avec le cache ? Un artefact, c'est quoi ?
+
 Tester plusieurs versions de python car tout le monde ne tourne pas tous sur la meme version que moi
 Le cache permet de garder les dépendences sans devoir les retélécharger a chaque fois
 Un artefact qui est produit lors de l'execution
@@ -67,6 +69,7 @@ Un artefact qui est produit lors de l'execution
 > 📸 **TP2-6 :** une PR dont la fusion est bloquée par une vérification en échec.
 
 **Question :** Pourquoi interdire de pousser directement sur `main` ?
+
 Car le main peut etre la branche en prod et si on push une erreur sur la main la prod peut cassé
 
 ---
@@ -100,6 +103,7 @@ git push
 
 **Questions :** Pourquoi Git ne peut-il pas résoudre ce conflit seul ? Qu'est-ce qui a vérifié le code après la résolution ?
 
+Car il ne peut pas faire le choix entre les deux code
 
 ---
 
@@ -119,6 +123,7 @@ git push
 > ⚠️ Ne mettez **jamais** un vrai secret dans une capture ou dans le code.
 
 **Questions :** Pourquoi GitHub masque-t-il le secret ? Que se passe-t-il si on le commite dans le dépôt ? Secret ou variable : comment choisir ?
+
 Car il est mis dans une variable qui n'est autorisé d'etre afficher
 Secret si c'est un mot de passe et variable si c'est une variable qui ne donne pas la possibilité d'avoir acces a des donnés sensible
 ---
@@ -131,6 +136,7 @@ Dans le dossier `pipelines-a-reparer/` : trois workflows (A, B, C) avec **un bug
 > 📸 **TP2-11 :** la liste des runs montrant vos trois pipelines réparés au vert.
 
 **Questions :** Pour chaque pipeline : quel était le bug, comment l'avez-vous trouvé, comment l'éviter à l'avenir ?
+
 pipeline-A: indentation
 pipeline-B: il manque le actions/checkout@v6
 pipeline-C: la matrix n'a pas de "" sur les valeurs

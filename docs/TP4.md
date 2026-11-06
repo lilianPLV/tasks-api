@@ -131,7 +131,8 @@ Ce que fait la commande macOS / Linux, de gauche à droite :
 > 📸 **TP4-2 :** `kubectl get pods -n argocd` (tous `Running`) et la page de connexion d'Argo CD.
 
 **Questions :** Avec vos mots : c'est quoi un pod ? Un deployment ? Pourquoi un `namespace` ? (Aidez-vous du vocabulaire ci-dessus et de `kubectl get pods -n argocd`.)
-le conteneur tourne dans un pod, le Deployment garantit que le bon nombre de pods tourne dans la bonne version, et le namespace range et isole le tout.
+
+Le conteneur tourne dans un pod, le Deployment garantit que le bon nombre de pods tourne dans la bonne version, et le namespace range et isole le tout.
 
 ---
 
@@ -206,6 +207,7 @@ Puis, dans un 3ᵉ terminal : `curl http://localhost:8081/version` (Windows : `c
 > 📸 **TP4-4 :** la réponse de `/version` obtenue dans le cluster.
 
 **Question :** Pourquoi sépare-t-on le dépôt de l'application et le dépôt de configuration ? (Pensez à ce qui déclenche la CI et à qui a le droit de modifier quoi.)
+
 Pour éviter qu'a chaque push la config se refasse on les séparent en deux
 
 ---
@@ -253,6 +255,9 @@ Refresh dans Argo CD : le nombre de pods revient à 2.
 > 📸 **TP4-7 :** l'historique des commits de `tasks-config` avec le `revert`, et le retour à 2 pods.
 
 **Questions :** Que signifie `selfHeal` ? Pourquoi le retour arrière est-il simple en GitOps ?
+
+Quand SelfHeal est en true, la modification a la main est impossible, si quelqu'un essaie de modifier a la main, selfHeal remettera comme avant.
+Grace au commit qui donne a chaque fois l'état du projet donc il a juste a revenir au dernier commit.
 
 ---
 
@@ -357,6 +362,7 @@ kubectl port-forward svc/tasks-api -n tasks 8081:80
 > 📸 **TP4-10 :** `/version` qui répond `0.2.0`.
 
 **Questions :** Résumez en 5 lignes le chemin d'un `git tag` jusqu'au pod. Qui pousse (push) et qui tire (pull) ? Quelle différence avec un déploiement CI/CD « classique » ?
+
 La différence avec le déploiement classique : dans un déploiement classique, le robot entre lui-même dans le serveur pour installer la nouvelle version, ce qui demande de lui confier les clés. Ici, le robot ne touche jamais au serveur : il laisse un message, et le serveur s’occupe de tout. C’est plus sûr, et pour revenir en arrière il suffit d’annuler la dernière modification de la fiche.
 
 ---
