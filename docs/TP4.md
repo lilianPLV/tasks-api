@@ -357,6 +357,7 @@ kubectl port-forward svc/tasks-api -n tasks 8081:80
 > 📸 **TP4-10 :** `/version` qui répond `0.2.0`.
 
 **Questions :** Résumez en 5 lignes le chemin d'un `git tag` jusqu'au pod. Qui pousse (push) et qui tire (pull) ? Quelle différence avec un déploiement CI/CD « classique » ?
+La différence avec le déploiement classique : dans un déploiement classique, le robot entre lui-même dans le serveur pour installer la nouvelle version, ce qui demande de lui confier les clés. Ici, le robot ne touche jamais au serveur : il laisse un message, et le serveur s’occupe de tout. C’est plus sûr, et pour revenir en arrière il suffit d’annuler la dernière modification de la fiche.
 
 ---
 
